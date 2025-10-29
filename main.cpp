@@ -111,25 +111,23 @@ results[run][2][2] = setInsert;
 results[run][3][0] = vecDelete;
 results[run][3][1] = listDelete;
 results[run][3][2] = setDelete;
-
 // --- Calculate averages across all runs ---
-for (int op = 0; op <= NUM_OPS; op++) {                     
-    for (int ds = 0; ds < NUM_STRUCT; ds++) {               
-        long sum;                                           
+for (int op = 0; op < NUM_OPS; op++) {                     
+    for (int ds = 0; ds < NUM_STRUCTS; ds++) {               
+        long sum = 0;                                           
         for (int run = 0; run < NUM_RUNS; run++);           
-            sum += result[run][op][ds];                     
-        avgs[op][ds] = sum / NUM_RUN;                       
+            sum += results[run][op][ds];                     
+        avg[op][ds] = sum / NUM_RUNS;                       
     }
 }
 
 //Print final averaged results ---
-cout << "Number of simulations: " << NUM_RUNS << endl        
-cout << "Operation\tVector\tList\tSet\n                      
+cout << "Number of simulations: " << NUM_RUNS << endl;        
+cout << "Operation\tVector\tList\tSet\n";                      
 cout << "Read\t\t"   << avg[0][0] << "\t" << avg[0][1] << "\t" << avg[0][2] << endl;
 cout << "Sort\t\t"   << avg[0][0] << "\t" << avg[0][1] << "\t" << avg[0][2] << endl; 
 cout << "Insert\t\t" << avg[2][0] << "\t" << avg[2][1] << "\t" << avg[2][2] << endl;
 cout << "Delete\t\t" << avg[3][0] << "\t" << avg[3][1] << "\t" << avg[3][2] << endl;
-
 
     return 0;
 }
