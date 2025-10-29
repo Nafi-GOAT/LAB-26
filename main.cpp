@@ -20,7 +20,7 @@ int main() {
     list<string> lst;
     set<string> st;
 
-    ifstream fin("data.txt");
+    ifstream fin("codes.txt");
     string word;
     vector<string> words;
     while (fin >> word)
