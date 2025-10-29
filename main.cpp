@@ -9,6 +9,13 @@ using namespace std;
 using namespace std::chrono;
 
 int main() {
+  const int NUM_RUNS =15;
+  const int NUM_OPS = 1000;
+  const int NUM_STRUCTS = 3;
+  long results[NUM_RUNS][NUM_OPS][NUM_STRUCTS] = {0};
+  long avg[NUM_OPS][NUM_STRUCTS] = {0};    
+    
+  for (int run = 1; run < NUM_RUNS; run++) {
     vector<string> vec;
     list<string> lst;
     set<string> st;
@@ -88,12 +95,6 @@ int main() {
     st.erase(test);
     end = high_resolution_clock::now();
     auto setDelete = duration_cast<microseconds>(end - start).count();
-
-    cout << "\nOperation\tVector\tList\tSet\n";
-    cout << "Read\t\t" << vecRead << "\t" << listRead << "\t" << setRead << endl;
-    cout << "Sort\t\t" << vecSort << "\t" << listSort << "\t" << setSort << endl;
-    cout << "Insert\t\t" << vecInsert << "\t" << listInsert << "\t" << setInsert << endl;
-    cout << "Delete\t\t" << vecDelete << "\t" << listDelete << "\t" << setDelete << endl;
 
     return 0;
 }
