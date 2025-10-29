@@ -115,8 +115,8 @@ results[run][3][2] = setDelete;
 for (int op = 0; op < NUM_OPS; op++) {                     
     for (int ds = 0; ds < NUM_STRUCTS; ds++) {               
         long sum = 0;                                           
-        for (int run = 0; run < NUM_RUNS; run++);           
-            sum += results[run][op][ds];                     
+        for (int runIndex = 0; runIndex < NUM_RUNS; runIndex++);           
+            sum += results[runIndex][op][ds];                     
         avg[op][ds] = sum / NUM_RUNS;                       
     }
 }
@@ -131,4 +131,5 @@ cout << "Delete\t\t" << avg[3][0] << "\t" << avg[3][1] << "\t" << avg[3][2] << e
 
     return 0;
 }
+
 
